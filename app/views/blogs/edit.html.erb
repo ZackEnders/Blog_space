@@ -1,0 +1,12 @@
+
+<h1>this is the edit page</h1>
+<%= form_for @blog do |f|%>
+<div><%= f.text_field :title%></div>
+<div><%= f.text_area :content%></div>
+<div><%= f.hidden_field :user_id, :value => current_user.id %></div>
+<div><%= f.submit%></div>             
+<% end %>
+
+<% if user_signed_in? && @blog.user_id == current_user.id %>
+	<div>	Delete this blog </div>
+<% end %>

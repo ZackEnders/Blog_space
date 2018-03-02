@@ -1,0 +1,9 @@
+<h1>This shows all blogs posted/ blog feed</h1>
+
+	<% @blogs.each do |b| %>
+	<div>
+		<%= b.user_id %>
+		<a href="/blogs/<%= b.id%>"><%= b.title %></a>
+		<%= b.content %>
+	</div>
+	<% end %>

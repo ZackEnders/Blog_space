@@ -1,0 +1,9 @@
+<h1>This is the profile page</h1>
+<p><%= link_to('Edit Profile', edit_user_registration_path)%></p>
+<p><%= link_to('My Blogs', blogs_path)%></p>
+
+<div>Users Name: <%= @user.name%></div>
+<div>Users Email: <%= @user.email%></div>
+<div>DOB: <%= @user.date_of_birth.to_date%></div>
+
+<p><%= link_to('Logout', destroy_user_session_path, method: :delete)%></p>

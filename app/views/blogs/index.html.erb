@@ -1,0 +1,12 @@
+<h1>MY BLOGS</h1>
+
+<p><%= link_to('New Blog Post', new_blog_path)%></p>
+
+
+<% @blogs.each do |b|%>
+	<%if b.user_id == current_user.id%>
+		<div>Title: <a href="blogs/<%=b.id %>/edit"><%= b.title %></a></div>
+		<div>Content: <%= b.content %></div>
+		<br/>
+	<% end %>
+<% end %>
