@@ -1,0 +1,11 @@
+<h1>this is the edit page</h1>
+<%= form_for [@blog, @comment] do |f|%>
+<div><%= f.text_field :body%></div>
+<div><%= f.hidden_field :blog_id, :value => @blog.id %></div>
+<div><%= f.hidden_field :user_id, :value => current_user.id %></div>
+<div><%= f.submit%></div>             
+<% end %>
+
+<% if user_signed_in? && @comment.user_id == current_user.id %>
+	<div><%= link_to('Delete comment', blog_comment_path, method: :delete)%> </div>
+<% end %>
