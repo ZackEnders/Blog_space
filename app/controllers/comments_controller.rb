@@ -14,12 +14,12 @@ class CommentsController < ApplicationController
     		#if the blog is saved it creates the blog with the current blog params. Then alerts the user if it was successful
     		if @comment.save
     		  flash[:alert] = "Blog created successfully"
-    		  redirect_to blog_path
+    		  redirect_to '/'
     		end
 	end
 	def edit
 		@comment = Comment.find(params[:id])
-		@blog = Blog.find(params[:id])
+		@blog = Blog.find(@comment.blog_id)
     		if current_user.id == @comment.user_id
 
       		else 
@@ -47,7 +47,7 @@ class CommentsController < ApplicationController
     	#if blog destroy is successful then it alerts the user that it was deleted
     		if comment.destroy
       			flash[:alert] = "Comment deleted!"
-      			redirect_to blog_path
+      			redirect_to root_path
     		else
       			flash[:alert] = "Could not delete comment!"
       			render blog_path
