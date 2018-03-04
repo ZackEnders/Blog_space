@@ -8,5 +8,5 @@
 <% end %>
 
 <% if user_signed_in? && @blog.user_id == current_user.id %>
-	<div>	Delete this blog </div>
+	<div><%= link_to('Delete Blog post', blog_path, method: :delete)%> </div>
 <% end %>

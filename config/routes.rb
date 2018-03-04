@@ -4,9 +4,8 @@ Rails.application.routes.draw do
 root to: 'home#index'
 resources :users
 
-resources :blogs do 
+resources :blogs do
 	resources :comments
 end
-
 
 end

@@ -3,9 +3,27 @@
 <div> Title </div>
 <%= @blog.title %>
 <%= @blog.content %>
-
-<%if @blog.user_id == current_user.id %>
-<p><%= link_to('Edit Blog Post', edit_blog_path) %></p>
-<% end %>
+	<%if @blog.user_id == current_user.id %>
+		<p><%= link_to('Edit Blog Post', edit_blog_path) %></p>
+	<% end %>
 
 <%= link_to "Back to blogs", root_path %>
+
+<%= form_for [@blog, @comment] do |f|%>
+<div><%= f.text_field :body%></div>
+<div><%= f.hidden_field :blog_id, :value => @blog.id%></div>
+<div><%= f.hidden_field :user_id, :value => current_user.id%></div>
+<div><%= f.submit%></div>             
+<% end %>
+
+<% @comments.each do |c|%>
+	<% @creator = User.find(c.user_id) %>
+		<%if c.blog_id == @blog.id %>
+			<div>Username: <%= @creator.email %></div>
+			<div>Comment: <%= c.body %></div>
+				<%if @creator.id == current_user.id && c.user_id == current_user.id %>
+					<div><a href="/blogs/<%= @blog.id%>/comments/<%=c.id%>/edit">Edit comment</a></div>
+				<% end %>
+		<% end %>	
+	<% end%>
+

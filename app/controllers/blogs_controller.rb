@@ -20,11 +20,14 @@ class BlogsController < ApplicationController
     		  flash[:alert] = "Blog creation unsuccessful! Please try again!"
     		  render new_blog_path
     		end
+
 	end
 
 	def show
 		@blog = Blog.find(params[:id])
-	end
+    @comment = Comment.new
+    @comments = Comment.all
+  	end
 
 	def edit
 		@blog = Blog.find(params[:id])
@@ -70,5 +73,7 @@ class BlogsController < ApplicationController
   		def blog_params
   		  params.require(:blog).permit(:title, :content, :user_id)
   		end
+    
+  
 
 end
