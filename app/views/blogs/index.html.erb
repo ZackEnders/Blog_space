@@ -1,12 +1,17 @@
-<h1>MY BLOGS</h1>
 
-<p><%= link_to('New Blog Post', new_blog_path)%></p>
+<h1 class="page-titles">MY BLOGS</h1>
 
+<div class="new-blog">
+<div><a href="blogs/new"> New Blog Post </a></div>
+</div>
 
 <% @blogs.each do |b|%>
 	<%if b.user_id == current_user.id%>
-		<div>Title: <a href="blogs/<%=b.id %>/edit"><%= b.title %></a></div>
-		<div>Content: <%= b.content %></div>
-		<br/>
+	<div class="blogs-feed">
+		<h3 class="blog-headers centerer">Title</h3>
+		<div class="centerer"><a href="/blogs/<%= b.id%>"><%= b.title %></a></div>
+		<h3 class="blog-headers centerer">Content</h3>
+		<div><%= b.content %></div>
+	</div>
 	<% end %>
 <% end %>

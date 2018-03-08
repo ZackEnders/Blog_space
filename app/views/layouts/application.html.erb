@@ -8,24 +8,45 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-  	<header>
+  <body class="layout-body">
+  	<header class="header-box">
   		<nav id="nav_bar">
   			<ul>
   				<li><%= link_to('Home', root_path)%></li>
   				<% if !user_signed_in? %>
-  				<li><%= link_to('Login', new_user_session_path)%></li>
+  				<li> <a href="/users/sign_in">Login</a></li>
           <li><%= link_to('Sign Up', new_user_registration_path)%></li>
   				<% else %>
           <li><%= link_to('Profile', current_user)%></li>
           <li><%= link_to('My Blogs', blogs_path)%></li>
   				<li><%= link_to('Logout', destroy_user_session_path, method: :delete)%></li>
   				<% end %>
+          <div class="logo"><span class="blogspace">BLOG SPACE </span></div>
   			</ul>
   		</nav>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
   	</header>
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<div id="modal-overlay">
+    <div class="modal" id="modal">
+      <button class="close" id="close">Click here to close this box!</button>
+        <div class="centerer">
+          <div class="modal-guts">
+            <%= form_for(:user, :url => session_path(:user)) do |f| %>
+              <%= f.text_field :email %>
+              <%= f.password_field :password %>
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+              <%= f.submit 'Sign in' %>
+              <%= link_to "Forgot your password?", new_password_path(:user) %>
+            <% end %>
+
+    </div>
+  </div>
+</div>
+</div>
     <%= yield %>
   </body>
 </html>
+
+

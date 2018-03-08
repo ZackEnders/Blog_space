@@ -1,0 +1,52 @@
+//Comment feed on each show page
+
+.comments-feed {
+	width: 50%;
+	border-radius: 2px;
+	padding: 20px;
+	border: 1px solid;
+    box-shadow: 2px 4px #5F5F5F;
+ 	background-color: white;
+ 	margin: 3% auto;
+ 	// text-align: center;
+ 	font-size: 18px;
+	line-height: 30px;
+	hr{
+ 		margin: 20px 0;
+ 	}
+}
+
+
+// Text box for comment
+.comment-TA {
+	min-width: 99%;
+	max-width: 99%;
+	max-height: 100px;
+	min-height: 100px;
+}
+
+//comment submit button
+.comment-submit {
+	margin-top: 15px;
+	text-align: center;
+}
+
+
+// edit comment / delete comment links
+span {
+	text-decoration: underline;
+	display: inline-block;
+}
+
+.edit-comment {
+	text-align: right;
+	text-decoration: underline;
+}
+
+.delete-comment {
+	text-decoration: underline;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 15px;
+	padding: 10px;
+}

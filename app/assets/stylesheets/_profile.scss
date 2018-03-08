@@ -1,0 +1,48 @@
+
+// Main box / paper effect
+
+.profile-box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 30%;
+	border-radius: 5px;
+	padding: 10px;
+	border: 1px solid #5F5F5F;
+    box-shadow:0 2px 10px #5F5F5F;
+ 	background-color: white;
+ 	margin: 0 auto;
+ 	text-align: center;
+ 	font-size: 18px;
+ 	color: #25292E;
+ 	
+ 	a {
+ 		text-decoration: none;
+ 		text-transform: uppercase;
+ 		color: #25292E;
+ 	}
+
+}
+
+
+// Profile guts and buttons
+.profile-guts {
+	width: 80%;
+	padding-bottom: 20px;
+	margin: 0 auto;
+	line-height: 50px;
+}
+
+.profile-buttons {
+	border: 2px solid black;
+	box-shadow:0 2px 10px #5F5F5F;
+	margin: 10px auto;
+	width: 60%;
+	padding: 10px;
+
+
+	a {
+		display: block;
+	}
+}
