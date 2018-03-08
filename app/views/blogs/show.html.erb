@@ -22,10 +22,11 @@
 </div>
 
 <div class="comments-feed">
+	<h3 class="blog-headers centerer"> Comments </h3>
 	<% @comments.each do |c|%>
 			<%if c.blog_id == @blog.id %>
 			<% @creator = User.find(c.user_id) %>
-				<div>Username: <%= @creator.email %></div>
+				<div>Name: <%= @creator.name %></div>
 				<div>Comment: <%= c.body %></div>
 					<%if @creator.id == current_user.id && c.user_id == current_user.id %>
 						<div class="edit-comment"><a href="/blogs/<%= @blog.id%>/comments/<%=c.id%>/edit">Edit comment</a></div>

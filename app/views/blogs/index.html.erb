@@ -9,9 +9,11 @@
 	<%if b.user_id == current_user.id%>
 	<div class="blogs-feed">
 		<h3 class="blog-headers centerer">Title</h3>
-		<div class="centerer"><a href="/blogs/<%= b.id%>"><%= b.title %></a></div>
+		<div class="centerer"><%= b.title %></div>
+		<hr>
 		<h3 class="blog-headers centerer">Content</h3>
 		<div><%= b.content %></div>
+		<div class="clickable"><a  href="/blogs/<%= b.id%>">Show Blog & Comments</a></div>
 	</div>
 	<% end %>
 <% end %>
