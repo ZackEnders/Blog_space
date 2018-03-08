@@ -1,3 +1,5 @@
+// $(document).on('turbolinks:load', function(main(
+
 // var modalone = document.getElementById('modalone')
 
 // function Login (){
@@ -19,3 +21,10 @@
 // 	modal.style.display = "block"
 // 	modalOverlay.style.display = "block"
 // }, 3000)
+
+
+
+	// ));
+
+
+
