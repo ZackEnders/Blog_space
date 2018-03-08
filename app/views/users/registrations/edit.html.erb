@@ -4,7 +4,7 @@
   <%= devise_error_messages! %>
 
   <div><%=f.label :name %> <br/>
-    <%= f.text_field :name, autofocus: true %></div>
+    <%= f.text_field :name, autofocus: true, require: true %></div>
 
     <!-- <div><%# f.check_box :is_female, {}, true %> <%# f.label :is_female, "Female"%></div> -->
     <!-- <div><%# f.check_box :is_female, {}, false %> <%# f.label :is_female, "Male" %> </div> -->

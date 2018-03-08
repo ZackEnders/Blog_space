@@ -28,21 +28,22 @@
  	font-size: 18px;
  	color:#25292E;
 
- 	a {
- 		text-decoration: none;
- 		color: #25292E;
- 	}
-
  	.centerer {
  		text-align: center;
  		margin: 0 auto;
  	}
+
  	hr{
  		margin: 20px 0;
  	}
 
 }
 
+.clickable {
+ 	color: blue;
+ 	text-align: right;
+ 	font-size: 14px;
+ }
 // Blog headers and edit blog button
 
 .blog-headers {

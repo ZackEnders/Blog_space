@@ -3,9 +3,9 @@
   <head>
     <title>BlogSpace</title>
     <%= csrf_meta_tags %>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
   </head>
 
   <body class="layout-body">
@@ -14,8 +14,8 @@
   			<ul>
   				<li><%= link_to('Home', root_path)%></li>
   				<% if !user_signed_in? %>
-  				<li> <a href="/users/sign_in">Login</a></li>
-          <li><%= link_to('Sign Up', new_user_registration_path)%></li>
+  				<li> <a id="log_in" onclick="login()">Login</a></li>
+          <li><a id="sign_up" onclick="signup()">Sign Up</a></li>
   				<% else %>
           <li><%= link_to('Profile', current_user)%></li>
           <li><%= link_to('My Blogs', blogs_path)%></li>
@@ -27,24 +27,98 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
   	</header>
-<div id="modal-overlay">
-    <div class="modal" id="modal">
-      <button class="close" id="close">Click here to close this box!</button>
-        <div class="centerer">
-          <div class="modal-guts">
-            <%= form_for(:user, :url => session_path(:user)) do |f| %>
-              <%= f.text_field :email %>
-              <%= f.password_field :password %>
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-              <%= f.submit 'Sign in' %>
-              <%= link_to "Forgot your password?", new_password_path(:user) %>
-            <% end %>
+    
 
-    </div>
+<div id="modal-overlay">
+    <div class="modal">
+      <button class="close" id="close" onclick="Close()">X</button>
+        <div class="centerer">
+            <div class="signin-box">
+              <h1 class="modal-titles">Login</h1>
+            <%= form_for(:user, :url => session_path(:user)) do |f| %>
+              <div class="centerer">Email</div>
+              <div> <%= f.email_field :email,autofocus: true, autocomplete: "email", placeholder: "Email"  %></div>
+              <div>Password</div>
+              <div> <%= f.password_field :password, autocomplete: "off", placeholder: "Password"  %></div>
+              <div><%= f.check_box :remember_me%>
+                    <%= f.label :remember_me %></div>
+              <div onclick="Close()"><%= f.submit 'Sign in' %></div>
+              <div class="signin-links"><%= link_to "Forgot your password?", new_password_path(:user) %></div>
+            <% end %>
+          </div>
   </div>
 </div>
 </div>
+<div id="modal-overlay2">
+    <div class="modal2">
+      <button class="close2" id="close2" onclick="Close2()">X</button>
+        <div class="centerer">
+            <div class="signin-box">
+              <h1 class="modal-titles">Sign Up</h1>
+                <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+              
+                <div class="field">
+                <%=f.label :name %> <br/>
+                <%= f.text_field :name, autofocus: true %></div>
+
+                <div class="field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                </div>
+
+                <div class="field">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "off" %>
+                </div>
+
+                <div class="field">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                </div>
+
+              <div onclick="Close2()"><%= f.submit 'Sign up' %></div>
+            <% end %>
+          </div>
+  </div>
+</div>
+</div>
+
+
+<script>
+
+
+let modal = document.getElementById('log_in');
+let close = document.getElementById('close');
+let modal2 = document.getElementById('sign_up');
+let close2 = document.getElementById('close2');
+
+let modalOverlay = document.getElementById('modal-overlay');
+
+let modalOverlay2 = document.getElementById('modal-overlay2');
+  
+  function login(){
+    modalOverlay.style.display = 'block';
+}
+
+  function Close() {
+
+    modalOverlay.style.display = 'none';
+  }
+   function signup(){
+    modalOverlay2.style.display = 'block';
+}
+
+  function Close2() {
+
+    modalOverlay2.style.display = 'none';
+  }
+
+
+
+</script>
     <%= yield %>
   </body>
 </html>

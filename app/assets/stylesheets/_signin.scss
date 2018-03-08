@@ -1,6 +1,9 @@
 .signin-box {
-
-	width: 30%;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 60%;
 	border-radius: 5px;
 	padding: 10px;
 	border: 1px solid #5F5F5F;
@@ -10,6 +13,7 @@
  	text-align: center;
  	font-size: 18px;
  	color: #25292E;
+ 	line-height: 30px;
  	
  	a {
  		text-decoration: none;
