@@ -7,48 +7,50 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
   </head>
-
+<!-- Navbar -->
   <body class="layout-body">
   	<header class="header-box">
   		<nav id="nav_bar">
   			<ul>
   				<li><%= link_to('Home', root_path)%></li>
   				<% if !user_signed_in? %>
-  				<li> <a id="log_in" onclick="login()">Login</a></li>
-          <li><a id="sign_up" onclick="signup()">Sign Up</a></li>
+  				  <li> <a id="log_in" onclick="login()">Login</a></li>
+            <li><a id="sign_up" onclick="signup()">Sign Up</a></li>
   				<% else %>
-          <li><%= link_to('Profile', current_user)%></li>
-          <li><%= link_to('My Blogs', blogs_path)%></li>
-  				<li><%= link_to('Logout', destroy_user_session_path, method: :delete)%></li>
+            <li><%= link_to('Profile', current_user)%></li>
+            <li><%= link_to('My Blogs', blogs_path)%></li>
+  				  <li><%= link_to('Logout', destroy_user_session_path, method: :delete)%></li>
   				<% end %>
           <div class="logo"><span class="blogspace">BLOG SPACE </span></div>
   			</ul>
   		</nav>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <!-- Flash alerts -->
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
   	</header>
     
-
+<!-- Sign in modal -->
 <div id="modal-overlay">
     <div class="modal">
       <button class="close" id="close" onclick="Close()">X</button>
         <div class="centerer">
             <div class="signin-box">
               <h1 class="modal-titles">Login</h1>
-            <%= form_for(:user, :url => session_path(:user)) do |f| %>
-              <div class="centerer">Email</div>
-              <div> <%= f.email_field :email,autofocus: true, autocomplete: "email", placeholder: "Email"  %></div>
-              <div>Password</div>
-              <div> <%= f.password_field :password, autocomplete: "off", placeholder: "Password"  %></div>
-              <div><%= f.check_box :remember_me%>
-                    <%= f.label :remember_me %></div>
-              <div onclick="Close()"><%= f.submit 'Sign in' %></div>
-              <div class="signin-links"><%= link_to "Forgot your password?", new_password_path(:user) %></div>
-            <% end %>
-          </div>
-  </div>
+              <%= form_for(:user, :url => session_path(:user)) do |f| %>
+                <div class="centerer">Email</div>
+                <div> <%= f.email_field :email,autofocus: true, autocomplete: "email", placeholder: "Email"  %></div>
+                <div>Password</div>
+                <div> <%= f.password_field :password, autocomplete: "off", placeholder: "Password"  %></div>
+                <div><%= f.check_box :remember_me%>
+                     <%= f.label :remember_me %></div>
+                <div onclick="Close()"><%= f.submit 'Sign in' %></div>
+                <div class="signin-links"><%= link_to "Forgot your password?", new_password_path(:user) %></div>
+              <% end %>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+<!-- Sign up modal -->
 <div id="modal-overlay2">
     <div class="modal2">
       <button class="close2" id="close2" onclick="Close2()">X</button>
@@ -57,35 +59,37 @@
               <h1 class="modal-titles">Sign Up</h1>
                 <%= form_for(:user, :url => registration_path(:user)) do |f| %>
               
-                <div class="field">
-                <%=f.label :name %> <br/>
-                <%= f.text_field :name, autofocus: true %></div>
+                  <div class="field">
+                  <%=f.label :name %> <br/>
+                  <%= f.text_field :name, autofocus: true %></div>
 
-                <div class="field">
-                <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-                </div>
+                  <div class="field">
+                  <%= f.label :email %><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                  </div>
 
-                <div class="field">
-                <%= f.label :password %>
-                <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-                <% end %><br />
-                <%= f.password_field :password, autocomplete: "off" %>
-                </div>
+                  <div class="field">
+                  <%= f.label :password %>
+                    <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br />
+                  <%= f.password_field :password, autocomplete: "off" %>
+                  </div>
 
-                <div class="field">
-                <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "off" %>
-                </div>
+                  <div class="field">
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                  </div>
 
               <div onclick="Close2()"><%= f.submit 'Sign up' %></div>
-            <% end %>
-          </div>
-  </div>
-</div>
+              <% end %>
+            </div>
+        </div>
+    </div>
 </div>
 
+
+<!-- Modal JavaScript script -->
 
 <script>
 

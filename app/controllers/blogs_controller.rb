@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
 	before_action :authenticate_user!
+
+  # List all blogs from most recent
 	def index
 		@blogs = Blog.all.order('created_at DESC')
 	end
@@ -23,6 +25,8 @@ class BlogsController < ApplicationController
 
 	end
 
+  #Show current blog and all comments
+
 	def show
 		@blog = Blog.find(params[:id])
     @comment = Comment.new
@@ -30,6 +34,7 @@ class BlogsController < ApplicationController
 
   	end
 
+# only allows the current user to edit their blog
 	def edit
 		@blog = Blog.find(params[:id])
 
@@ -57,7 +62,7 @@ class BlogsController < ApplicationController
 	end
 
 	def destroy
-		# finds the blog by it's id number
+
     	blog = Blog.find(params[:id])
     	#if blog destroy is successful then it alerts the user that it was deleted
     		if blog.destroy

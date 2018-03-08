@@ -1,8 +1,7 @@
-
 <h1 class="page-titles">Edit Blog Post</h1>
 <div class="blogs-feed">
 <%= render "blog_form" %>
-
+<!-- Only the current user can delete the blog post -->
 	<% if user_signed_in? && @blog.user_id == current_user.id %>
 		<div class="delete-blog">
 			<%= link_to('DELETE BLOG POST', blog_path, method: :delete)%>

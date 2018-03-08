@@ -1,5 +1,5 @@
 <h1 class="page-titles"><%= @blog.title %></h1>
-
+<!-- Shows the current blog -->
 <div class="blogs-feed">
 	<h3 class="blog-headers centerer"> Title </h3>
 		<div class="centerer"><%= @blog.title %></div>
@@ -12,6 +12,7 @@
 	</div>
 
 <div class="centerer"><a href="/"> Back to blogs</a></div>
+<!-- Allows the user to create a comment -->
 <div class="blogs-feed">
 	<%= form_for [@blog, @comment] do |f|%>
 		<div><%= f.text_area :body, :required => 'required', class: 'comment-TA'%></div>
@@ -20,7 +21,7 @@
 		<div class="comment-submit"><%= f.submit%></div>
 	<% end %>
 </div>
-
+<!-- shows the comments -->
 <div class="comments-feed">
 	<h3 class="blog-headers centerer"> Comments </h3>
 	<% @comments.each do |c|%>

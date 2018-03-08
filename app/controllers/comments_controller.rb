@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
+  
 	before_action :authenticate_user!, except: [:index]
-
+# lists all the comments
   	def index
    		@comments = Comment.all
   	end
@@ -17,6 +18,8 @@ class CommentsController < ApplicationController
     		  redirect_to "/blogs/#{@comment.blog_id}"
     		end
 	end
+
+  #  Only allows the current user to edit their comments
 	def edit
 		@comment = Comment.find(params[:id])
 		@blog = Blog.find(@comment.blog_id)
