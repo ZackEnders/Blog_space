@@ -5,15 +5,16 @@
 <div><a href="blogs/new"> New Blog Post </a></div>
 </div>
 
+<!-- Only lists the current users blog posts on their blogs page -->
 <% @blogs.each do |b|%>
 	<%if b.user_id == current_user.id%>
-	<div class="blogs-feed">
-		<h3 class="blog-headers centerer">Title</h3>
-		<div class="centerer"><%= b.title %></div>
-		<hr>
-		<h3 class="blog-headers centerer">Content</h3>
-		<div><%= b.content %></div>
-		<div class="clickable"><a  href="/blogs/<%= b.id%>">Show Blog & Comments</a></div>
-	</div>
+		<div class="blogs-feed">
+			<h3 class="blog-headers centerer">Title</h3>
+			<div class="centerer"><%= b.title %></div>
+			<hr>
+			<h3 class="blog-headers centerer">Content</h3>
+			<div><%= b.content %></div>
+			<div class="clickable"><a  href="/blogs/<%= b.id%>">Show Blog & Comments</a></div>
+		</div>
 	<% end %>
 <% end %>

@@ -1,14 +1,15 @@
 <h1 class="page-titles">Profile</h1>
 
 <div class="profile-box">
-
+<!-- Displays user info -->
 <div class="profile-guts">
-<div>Name: <%= @user.name%></div>
-<div>Email: <%= @user.email%></div>
+	<div>Name: <%= @user.name%></div>
+	<div>Email: <%= @user.email%></div>
 <!-- <div>DOB: <%#= @user.date_of_birth.to_date%></div> -->
 </div>
-
+<!-- Buttons -->
 <div class="profile-buttons"><a href="/blogs">My Blogs</a></div>
 <div class="profile-buttons"><a href="/users/edit"> Edit Profile</a></div>
 <div class="profile-buttons"><%= link_to('Logout', destroy_user_session_path, method: :delete)%></div>
+
 </div>

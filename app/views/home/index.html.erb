@@ -1,6 +1,6 @@
 <h1 class="page-titles">Welcome to Blog Space!</h1>
+	<!-- Lists all the blog posts -->
 	<% @blogs.each do |b| %>
-	
 	<div class="blogs-feed">
 		<h3 class="blog-headers centerer">Title</h3>
 		<% if user_signed_in? %> 
