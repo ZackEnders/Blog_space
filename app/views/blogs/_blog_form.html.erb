@@ -1,0 +1,15 @@
+
+<%= form_for @blog do |f|%>
+    <div>
+        <div class="blog-headers centerer">Title</div>
+       <div class="centerer"> <%= f.text_field :title, :required => "required", class: 'centerer' %></div>
+    </div>
+    <div>
+        <div class="blog-headers centerer">Content</div>
+        <%= f.text_area :content, :required => "required", class: 'blog-TA' %>
+    </div>
+    <div>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+    </div>
+    <div class="blog-submit"><%= f.submit%></div>
+<% end %>

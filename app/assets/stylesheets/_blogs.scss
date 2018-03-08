@@ -1,0 +1,87 @@
+//Blog create / edit form text area and submit button
+
+.blog-TA {
+	min-width: 99%;
+	max-width: 99%;
+	max-height: 300px;
+	min-height: 300px;
+}
+
+.blog-submit {
+	margin-top: 15px;
+	text-align: center;
+}
+
+
+
+// Styling almost all of my blog pages.. Adds the paper effect
+
+.blogs-feed {
+	width: 50%;
+	border-radius: 2px;
+	padding: 20px;
+	border: 1px solid;
+    box-shadow: 2px 4px 10px #5F5F5F;
+ 	background-color: white;
+ 	margin: 3% auto;
+ 	// text-align: center;
+ 	font-size: 18px;
+ 	color:#25292E;
+
+ 	a {
+ 		text-decoration: none;
+ 		color: #25292E;
+ 	}
+
+ 	.centerer {
+ 		text-align: center;
+ 		margin: 0 auto;
+ 	}
+ 	hr{
+ 		margin: 20px 0;
+ 	}
+
+}
+
+// Blog headers and edit blog button
+
+.blog-headers {
+	margin: 6px;
+	padding: 6px;
+	text-transform: uppercase;
+	text-decoration: underline;
+	font-size: 18px;
+	color: #25292E;
+}
+
+.edit-blog {
+	text-align: right;
+	text-decoration: underline;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+
+.delete-blog {
+	text-decoration: underline;
+	text-align: right;
+	font-size: 15px;
+	padding: 10px;
+}
+//new blog button on my blogs page
+.new-blog {
+	width: 150px;;
+	border-radius: 2px;
+	padding: 10px;
+	border: 1px solid;
+    box-shadow:0 2px 10px #5F5F5F;
+ 	background-color: white;
+ 	margin: 0 25%;
+ 	text-align: center;
+ 	font-size: 18px;
+
+ 	a {
+ 		text-decoration: none;
+ 		text-transform: uppercase;
+ 		color: #25292E;
+ 	}
+}

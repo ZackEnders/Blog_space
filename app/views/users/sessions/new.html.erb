@@ -1,5 +1,5 @@
-<h2>Log in</h2>
-
+<h2 class="page-titles">Log in</h2>
+<div class="signin-box">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -23,4 +23,5 @@
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<div class="signin-links"><%= render "users/shared/links" %></div>
+</div>

@@ -1,0 +1,6 @@
+<%= form_for [@blog, @comment] do |f|%>
+<div><%= f.text_area :body, :required => 'required', class: 'comment-TA'%></div>
+<div><%= f.hidden_field :blog_id, :value => @blog.id %></div>
+<div><%= f.hidden_field :user_id, :value => current_user.id %></div>
+<div class="comment-submit"><%= f.submit%></div>             
+<% end %>

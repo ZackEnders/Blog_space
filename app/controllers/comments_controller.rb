@@ -13,8 +13,8 @@ class CommentsController < ApplicationController
     	@comment = Comment.new(comment_params)
     		#if the blog is saved it creates the blog with the current blog params. Then alerts the user if it was successful
     		if @comment.save
-    		  flash[:alert] = "Blog created successfully"
-    		  redirect_to '/'
+    		  flash[:notice] = "Comment created successfully"
+    		  redirect_to "/blogs/#{@comment.blog_id}"
     		end
 	end
 	def edit
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     		if current_user.id == @comment.user_id
 
       		else 
-      			flash[:alert] = "Access Denied"
+      			flash[:notice] = "Access Denied"
       			redirect_to root_path
     		end
 	end
@@ -33,23 +33,23 @@ class CommentsController < ApplicationController
     	@comment = Comment.find(params[:id])
     	#if the blog is updated it stores the blog_params and alerts the user that it was updated
     		if @comment.update(comment_params) && @comment.user_id == current_user.id
-      			flash[:alert] = "Comment updated!"
-      			redirect_to blog_path
+      			flash[:notice] = "Comment updated!"
+      			redirect_to "/blogs/#{@comment.blog_id}"
     		else
-      			flash[:alert] = "Comment update unsuccessful!"
+      			flash[:notice] = "Comment update unsuccessful!"
       			render edit_blog_comment_path
    			end
 	end
 
 	def destroy
 		# finds the blog by it's id number
-    	comment = Comment.find(params[:id])
+    	@comment = Comment.find(params[:id])
     	#if blog destroy is successful then it alerts the user that it was deleted
-    		if comment.destroy
-      			flash[:alert] = "Comment deleted!"
-      			redirect_to root_path
+    		if @comment.destroy
+      			flash[:notice] = "Comment deleted!"
+      			redirect_to "/blogs/#{@comment.blog_id}"
     		else
-      			flash[:alert] = "Could not delete comment!"
+      			flash[:notice] = "Could not delete comment!"
       			render blog_path
 			end
 	end

@@ -1,12 +1,12 @@
 
-<h1>this is the edit page</h1>
-<%= form_for @blog do |f|%>
-<div><%= f.text_field :title%></div>
-<div><%= f.text_area :content%></div>
-<div><%= f.hidden_field :user_id, :value => current_user.id %></div>
-<div><%= f.submit%></div>             
-<% end %>
+<h1 class="page-titles">Edit Blog Post</h1>
+<div class="blogs-feed">
+<%= render "blog_form" %>
 
-<% if user_signed_in? && @blog.user_id == current_user.id %>
-	<div><%= link_to('Delete Blog post', blog_path, method: :delete)%> </div>
-<% end %>
+	<% if user_signed_in? && @blog.user_id == current_user.id %>
+		<div class="delete-blog">
+			<%= link_to('DELETE BLOG POST', blog_path, method: :delete)%>
+		</div>
+	<% end %>
+
+</div>

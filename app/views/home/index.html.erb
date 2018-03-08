@@ -1,9 +1,15 @@
-<h1>This shows all blogs posted/ blog feed</h1>
-
+<h1 class="page-titles">Welcome to Blog Space!</h1>
 	<% @blogs.each do |b| %>
-	<div>
-		<%= b.user_id %>
-		<a href="/blogs/<%= b.id%>"><%= b.title %></a>
-		<%= b.content %>
+	<div class="blogs-feed">
+
+		<h3 class="blog-headers centerer">Title</h3>
+		<% if user_signed_in? %> 
+		<div class="centerer"><a href="/blogs/<%= b.id%>"><%= b.title %></a></div>
+		<% else %>
+		<div class="centerer"><%= b.title %></div>
+		<% end %>
+		<h3 class="blog-headers centerer">Content</h3>
+		<div><%= b.content %></div>
+
 	</div>
 	<% end %>

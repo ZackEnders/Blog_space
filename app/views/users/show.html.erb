@@ -1,9 +1,14 @@
-<h1>This is the profile page</h1>
-<p><%= link_to('Edit Profile', edit_user_registration_path)%></p>
-<p><%= link_to('My Blogs', blogs_path)%></p>
+<h1 class="page-titles">Profile</h1>
 
-<div>Users Name: <%= @user.name%></div>
-<div>Users Email: <%= @user.email%></div>
+<div class="profile-box">
+
+<div class="profile-guts">
+<div>Name: <%= @user.name%></div>
+<div>Email: <%= @user.email%></div>
 <div>DOB: <%= @user.date_of_birth.to_date%></div>
+</div>
 
-<p><%= link_to('Logout', destroy_user_session_path, method: :delete)%></p>
+<div class="profile-buttons"><a href="/blogs">My Blogs</a></div>
+<div class="profile-buttons"><a href="/users/edit"> Edit Profile</a></div>
+<div class="profile-buttons"><%= link_to('Logout', destroy_user_session_path, method: :delete)%></div>
+</div>

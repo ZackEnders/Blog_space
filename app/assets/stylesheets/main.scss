@@ -1,4 +1,14 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-// @import 'navbar';
+// @import 'variables';
+// @import 'mixins';
+@import 'normalize';
+@import 'navbar';
+@import 'layout';
+@import 'modals';
+@import 'blogs';
+@import 'comments';
+@import 'profile';
+@import 'registration';
+@import 'signin';
