@@ -15,7 +15,7 @@ Open the terminal and run ```git clone https://github.com/ZackEnders/Blog_space.
 Next you will need to cd into the directory. Type 
 ```cd blog_space``` in the terminal.
 
-After that you will need to run ```bundle install``` and ``` rails db:migrate``` in your terminal.
+Now run ```bundle install``` and ``` rails db:migrate``` in your terminal.
 
 From the terminal fire up the rails server
 ```rails s```
